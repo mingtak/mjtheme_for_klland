@@ -24,13 +24,6 @@ hot_news = api.content.find(context=context, Type='News Item', featured=True, so
 children_folder = api.content.find(context=context, Type='Folder', depth=1)
 ?>
 
-<!-- 廣告 -->
-<!--    <div class="row">
-        <div class="col-sm-12 mv3 mvt0">
-            <metal:macro use-macro="context/@@mingjing_macro/macros/ad_block" />
-        </div>
-    </div>
--->
 
 <!-- Main slider start -->
 <section tal:define="items python:list(news)[0:8];
@@ -52,10 +45,6 @@ children_folder = api.content.find(context=context, Type='Folder', depth=1)
             <metal:macro use-macro="context/@@mingjing_macro/macros/hot_news" />
         </tal:hot_news>
 
-<!-- 廣告 -->
-            <div class="col-sm-12 mv3 mvt0">
-                <metal:macro use-macro="context/@@mingjing_macro/macros/ad_block" />
-            </div>
 
 
 
@@ -67,10 +56,6 @@ children_folder = api.content.find(context=context, Type='Folder', depth=1)
                 <metal:macro use-macro="context/@@mingjing_macro/macros/item_listing" />
             </tal:listing>
 
-<!-- Ad block -->
-            <div class="col-sm-12 mv3 mvt0">
-                <metal:macro use-macro="context/@@mingjing_macro/macros/ad_block"/>
-            </div>
 
 <!-- 分類新聞 -->
         <tal:categories_listing condition="children_folder">

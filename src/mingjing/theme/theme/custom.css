@@ -606,6 +606,10 @@ thead {
 }
 
 .portlet_tabs .tab-content ul li a { white-space:nowrap; }
+.portlet-ad-listing { margin-bottom: 40px}
+.portlet-ad-listing ul li {list-style-type: none; margin:10px 0}
+
+
 
 footer .categories { font-size: 18px; margin-top:30px}
 

@@ -24,20 +24,14 @@
 <!-- 通用slider, 傳入: items -->
   <metal:row define-macro="normal_slider">
       <div class="normal_slider">
-
 <div class="owl-theme owl-carousel">
   <div class="normal_slider_item" tal:repeat="item items">
-
-      <img tal:condition="python:getattr(item.getObject(), 'oldPicturePath', False)"
-           data-src="${python:item.getObject().oldPicturePath}" class="owl-lazy"/>
-      <img tal:condition="python:not getattr(item.getObject(), 'oldPicturePath', False)" class="owl-lazy"
-           data-src="${portal/absolute_url}/resource/images/logo_gray.png/@@images/image/large" alt="${item/Title}"/>
-      <a href="${item/getURL}" title="${item/Description}">
-          <h4 class="normal-item-title">${python:item.Title[0:70]}${python:'...' if len(item.Title)>70 else None}</h4>
+      <img data-src="${item/getURL}/@@images/image/large" class="owl-lazy"/>
+      <a href="${item/getURL}" title="${item/title}">
+          <h4 class="normal-item-title">${item/title}</h4>
       </a>
   </div>
 </div>
-
       </div>
   </metal:row>
 
@@ -121,7 +115,7 @@
 <div class="${col} owl-theme owl-carousel">
   <div class="live_slider_item" tal:repeat="item items">
       <img tal:define="yUrl python:item.getObject().youtubeURL;
-                       yId python:yUrl.split('/')[-1]"
+                       yId python:yUrl.split('?v=')[-1].split('/')[0]"
            src="https://img.youtube.com/vi/${yId}/0.jpg" alt="${item/Title}" />
       <a href="${item/getURL}" title="${item/Description}" target="_blank">
           <div class="live-item-title">${python:item.Title[0:70]}${python:'...' if len(item.Title)>70 else None}</div>
@@ -131,6 +125,23 @@
 
       </div>
   </metal:row>
+
+
+<!-- 相關連結(ad), 傳入: items, related_ad_id, col(owl-carousel-6 or owl-carousel-12) -->
+  <metal:row define-macro="related_ad">
+      <div class="related_ad">
+
+<div class="${col} owl-theme owl-carousel">
+  <div class="live_slider_item" tal:repeat="item items">
+      <a href="${item/getURL}" title="${item/Title}" target="_blank">
+          <img src="${item/getURL}/@@images/image/mini" alt="${item/Title}" />
+      </a>
+  </div>
+</div>
+
+      </div>
+  </metal:row>
+
 
 
 <!-- 分頁 tabs, BrowserView用, 傳入tabs_name, brains, tabs_id_prefix -->
@@ -251,9 +262,6 @@
           </div>
         </div>
 
-        <tal:ad condition="python:not repeat['i'].index % 10 and not repeat['i'].start">
-            <metal:macro use-macro="context/@@mingjing_macro/macros/ad_block">
-        </tal:ad>
 </div>
       </tal:folder>
     </div>
@@ -355,23 +363,6 @@
   </metal:row>
 
 
-<!-- Ad Block RWD -->
-  <metal:row define-macro="ad_block">
-      <div style="max-width:728px; margin-left:auto; margin-right:auto">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- 回應式廣告(news site) -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-9621066722313042"
-     data-ad-slot="1544871075"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-      </div>
-  </metal:row>
-
-
 <!-- listing_with_mini, 傳入 items(brain) -->
   <metal:row define-macro="listing_with_mini">
 
@@ -380,11 +371,11 @@
               <tal:item repeat="item items">
                                 <div class="post hover-light" tal:condition="repeat/item/even">
                                     <a href="${item/getURL}">
-                                                <div tal:condition="python:getattr(item.getObject(), 'oldPicturePath', False)"
+                                                <div tal:condition="python:getattr(item.getObject(), 'image', False)"
                                                      class="image image-thumb"
-                                                     data-src="${python:item.getObject().oldPicturePath}"
+                                                     data-src="${item/getURL}/@@images/image/mini"
                                                      style="background-image: url('');"></div>
-                                                <div tal:condition="python:not getattr(item.getObject(), 'oldPicturePath', False)"
+                                                <div tal:condition="python:not getattr(item.getObject(), 'image', False)"
                                                      class="image image-thumb"
                                                      data-src="${portal/absolute_url}/resource/images/logo_gray.png/@@images/image/mini"
                                                      style="background-image: url('');"></div>
@@ -405,11 +396,11 @@
               <tal:item repeat="item items">
                                 <div class="post hover-light" tal:condition="repeat/item/odd">
                                     <a href="${item/getURL}">
-                                                <div tal:condition="python:getattr(item.getObject(), 'oldPicturePath', False)"
+                                                <div tal:condition="python:getattr(item.getObject(), 'image', False)"
                                                      class="image image-thumb"
-                                                     data-src="${python:item.getObject().oldPicturePath}"
+                                                     data-src="${item/getURL}/@@images/image/mini"
                                                      style="background-image: url('');"></div>
-                                                <div tal:condition="python:not getattr(item.getObject(), 'oldPicturePath', False)"
+                                                <div tal:condition="python:not getattr(item.getObject(), 'image', False)"
                                                      class="image image-thumb"
                                                      data-src="${portal/absolute_url}/resource/images/logo_gray.png/@@images/image/mini"
                                                      style="background-image: url('');"></div>
@@ -479,10 +470,10 @@
                     <div class="master-slider ms-skin-default" id="${main_slider_id}">
        
                         <div class="ms-slide" data-delay="6" tal:repeat="item items">
-<tal:img switch="python:bool(getattr(item.getObject(), 'oldPicturePath', False))">
+<tal:img switch="python:bool(getattr(item.getObject(), 'image', False))">
                             <img tal:case="True"
                                  src="/++resource++mingjing.theme/images/blank.gif"
-                                 data-src="${python:item.getObject().oldPicturePath}"
+                                 data-src="${item/getURL()}/@@images/image/large"
                                  alt="${item/Title}" />
                             <img tal:case="False"
                                  src="/++resource++mingjing.theme/images/blank.gif"

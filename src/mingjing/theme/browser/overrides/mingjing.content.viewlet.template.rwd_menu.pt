@@ -36,8 +36,8 @@ portal = api.portal.get()
                             <div class="rwd-menu-logo">
                                 <img src="${portal/absolute_url}/logo_black.png" alt="${portal/title}">
 <!--                                <div class="auth-name">
-                                    <h4><a href="${portal/absolute_url}">北美觀天下</a></h4>
-                                    <p><a href="javascript:;">NAVisions.com</a></p>
+                                    <h4><a href="${portal/absolute_url}">基隆市政府地政處</a></h4>
+                                    <p><a href="javascript:;">Land.Klcg.gov.tw</a></p>
                                 </div>
 -->
                             </div>

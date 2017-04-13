@@ -27,14 +27,11 @@ LIMIT = 10
 hot_news = api.content.find(context=context, depth=1, featured=True, hasOldPicture=True, sort_on='created', sort_order='reverse', sort_limit=LIMIT)[:LIMIT]
 ?>
     <div class="row">
-        <div class="col-lg-6 col-md-12" tal:define="items hot_news">
+        <div class="col-lg-12 col-md-12" tal:define="items hot_news">
             <h3 class="category-title">
                 <span>焦點話題</span>
             </h3>
             <metal:macro use-macro="context/@@mingjing_macro/macros/normal_slider" />
-        </div>
-        <div class="col-lg-6 col-md-12" tal:define="items hot_news">
-            <metal:macro use-macro="context/@@mingjing_macro/macros/ad_block"/>
         </div>
     </div>
 
@@ -146,12 +143,6 @@ from plone import api
               </div>
 </div>
 
-<!-- Ad block -->
-        <div class="row" tal:condition="python:repeat['item'].number == 10">
-            <div class="col-sm-12 mv3 mvt0">
-                <metal:macro use-macro="context/@@mingjing_macro/macros/ad_block"/>
-            </div>
-        </div>
 
               </metal:block>
             </tal:block>
@@ -160,12 +151,6 @@ from plone import api
 
         <div metal:use-macro="context/batch_macros/macros/navigation" />
 
-<!-- Ad block -->
-        <div class="row">
-            <div class="col-sm-12 mv3 mvt0">
-                <metal:macro use-macro="context/@@mingjing_macro/macros/ad_block"/>
-            </div>
-        </div>
 
       </tal:listing>
 

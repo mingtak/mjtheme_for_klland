@@ -21,7 +21,6 @@ weekDay = {'0':'日', '1':'一', '2':'二', '3':'三', '4':'四', '5':'五', '6'
 
 <div class="col-lg-2 col-md-6 header-date">
 <span>
-[美東時間]<br>
 ${now/year}年${now/month}月${now/day}日<br>
 ${now/hour}時${now/minute}分 星期${python:weekDay[now.strftime('%w')]}
 </span>
@@ -29,7 +28,7 @@ ${now/hour}時${now/minute}分 星期${python:weekDay[now.strftime('%w')]}
 
 
 <div class="logo-side-ad col-lg-8 col-md-12" style="margin-bottom:8px">
-        <metal:macro use-macro="context/@@mingjing_macro/macros/ad_block" />
+<!-- 未定 -->
 </div>
 
                             </div>

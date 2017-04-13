@@ -1,3 +1,7 @@
+<?python
+from plone import api
+portal = api.portal.get()
+?>
 <div class="row">
 	<div class="col-xs-12">
 
@@ -6,9 +10,10 @@
         <div class="row">
             <div class="col-xs-12">
 
-北美觀天下是獨立的、開放式網站，歡迎網友自由發帖，本站於編輯確認並選擇適當分類後即行發佈。<br>
-如發現文章稿件侵權，或原稿作者不願在本網站發表圖文，請版權擁有者通知本網站處理。<br>
-北美觀天下所發布的所有消息和評論僅供讀者參考，不作為任何行為建議。
+基隆市政府地政處 版權所有© ${view/year} Keelung City Government. All Rights Reserved
+ │ 隱私權 │ 安全政策 │ <a href="${portal/absolute_url}/folder_contents">員工專區</a> <br>
+地址：基隆市義一路一號二樓　電話：(02)2420-1122 #2403~2416 或直撥1999(基隆市境內直撥) <br>
+傳真：(02)2422-7791 本網頁設計支援IE9、Firefox及Chrome，採自適應瀏覽設計
 
             </div>
         </div>
