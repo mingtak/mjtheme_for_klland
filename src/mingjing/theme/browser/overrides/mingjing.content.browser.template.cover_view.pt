@@ -38,7 +38,7 @@ tabsNameList_1, tabsBrain_1, tabsNameList_2, tabsBrain_2, tabsNameList_3, tabsBr
 <section tal:define="items python:list(view.mainSliders())[0:10];
                      main_slider_id string:cover_main_slider_1">
 
-        <h3 class="category-title">
+        <h3 class="category-title cover-main-title">
           <span>基隆市政府地政處 歡迎您</span>
         </h3>
 
@@ -50,46 +50,6 @@ tabsNameList_1, tabsBrain_1, tabsNameList_2, tabsBrain_2, tabsNameList_3, tabsBr
 
 <section>
     <div class="parallax-content">
-
-<!-- 影音專區 -->
-        <h3 class="category-title">
-          <span>影音專區</span>
-        </h3>
-
-        <div class="row">
-            <div class="col-sm-12" tal:define="items python:list(youtubes)[0:5];
-                                               live_slider_id string:cover_live_slider_3; 
-                                               col string:owl-carousel-12">
-                <metal:macro use-macro="context/@@mingjing_macro/macros/live_slider" />
-            </div>
-        </div>
-
-
-
-<!-- 視頻列表 -->
-<!--        <h3 class="category-title">
-            <span>視頻列表</span>
-        </h3>
-
-        <div class="row">
-            <div class="col-sm-6" tal:define="side string:even; plList context/radioList">
-                <metal:macro use-macro="context/@@mingjing_macro/macros/radio_listing" />
-            </div>
-            <div class="col-sm-6" tal:define="side string:odd; plList context/yt_interList">
-                <metal:macro use-macro="context/@@mingjing_macro/macros/radio_listing" />
-            </div>
-        </div>
--->
-
-
-<!-- 最新消息 -->
-<!--        <h3 class="category-title">
-            <span>最新消息</span>
-        </h3>
-        <div class="row" tal:define="items python:list(todayNews)[0:8]">
-           <metal:macro use-macro="context/@@mingjing_macro/macros/listing_with_mini" />
-        </div>
--->
 
 <!-- Tabs -->
         <div class="row">
@@ -114,6 +74,20 @@ tabsNameList_1, tabsBrain_1, tabsNameList_2, tabsBrain_2, tabsNameList_3, tabsBr
 
     </div>
     <!-- end .parallax-content -->
+
+
+<!-- 影音專區 -->
+        <h3 class="category-title">
+          <span>影音專區</span>
+        </h3>
+
+        <div class="row">
+            <div class="col-sm-12" tal:define="items python:list(youtubes)[0:5];
+                                               live_slider_id string:cover_live_slider_3;
+                                               col string:owl-carousel-12">
+                <metal:macro use-macro="context/@@mingjing_macro/macros/live_slider" />
+            </div>
+        </div>
 
 
 

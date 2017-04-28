@@ -27,9 +27,7 @@
 <div class="owl-theme owl-carousel">
   <div class="normal_slider_item" tal:repeat="item items">
       <img data-src="${item/getURL}/@@images/image/large" class="owl-lazy"/>
-      <a href="${item/getURL}" title="${item/title}">
-          <h4 class="normal-item-title">${item/title}</h4>
-      </a>
+      <h4 class="normal-item-title">${item/title}</h4>
   </div>
 </div>
       </div>
@@ -150,6 +148,7 @@
 
       <ul class="nav nav-tabs">
           <li tal:repeat="tab tabs_name"
+              id="${tabs_id_prefix}-nav-${repeat/tab/index}"
               class="${python:'active' if repeat['tab'].start else None}">
               <a data-toggle="tab" href="#${tabs_id_prefix}-${repeat/tab/index}">${tab}</a>
           </li>

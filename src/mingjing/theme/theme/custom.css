@@ -12,9 +12,9 @@
     #header nav.main-nav > ul > li.menu-item-mega > a { font-size:16px !important;}
     .slider-b { margin-top: 30px; padding:15px 15px 5px 15px !important;}
     .slider-b p { display: none }
-    .normal_slider .normal_slider_item { max-height:250px !important; }
-    .template-cover_view .normal_slider .normal_slider_item { max-height:250px !important; }
-    .template-cover_view .normal_slider .normal_slider_item img { height: 250px !important; }
+    .normal_slider .normal_slider_item { max-height:200px !important; }
+    .template-cover_view .normal_slider .normal_slider_item { max-height:200px !important; }
+    .template-cover_view .normal_slider .normal_slider_item img { height: 200px !important; }
 }
 
 @media(max-width: 640px) {
@@ -100,8 +100,9 @@
 .normal_slider .normal_slider_item { max-height:230px; overflow:hidden; }
 .normal_slider .normal_slider_item h4 { font-size:22px }
 .normal_slider .normal_slider_item img { height: 230px; width:auto; margin:auto }
-.template-cover_view .normal_slider .normal_slider_item { max-height:500px; overflow:hidden; }
-.template-cover_view .normal_slider .normal_slider_item img { height: 500px; width:auto; margin:auto }
+.template-cover_view .normal_slider .normal_slider_item { max-height:200px; overflow:hidden; }
+/* .template-cover_view .normal_slider .normal_slider_item img { height: 500px; width:auto; margin:auto } */
+/* .template-cover_view .normal_slider .normal_slider_item img { width: 100% } */
 .normal_slider .normal-item-title {
     margin: 0;
     color:#fff;
@@ -241,6 +242,10 @@
     padding: 0 8px;
     color: #47d;
     background-color: #fe1;
+}
+
+.cover-main-title.category-title span {
+    background-color: initial;
 }
 
 #header .panel-ticker .tt-el-ticker {
@@ -671,3 +676,22 @@ h3 .h3-title-more { float:right; font-size:18px; padding: 8px 10px 0 0 }
 .post .image { background-color: initial }
 
 .template-newsitem_view #content-core img {float:right; margin:10px 0 10px 10px; max-width:50%; width:100%; height:auto}
+
+ul.listing.table li a:link{color:#3b5998}
+ul.listing.table li a:hover{color:#5cb85c}
+ul.listing.table li a:visited{color:#888}
+ul.listing.table li {
+    margin:15px 10px; padding:10px 15px;
+    list-style-type:none; background-color:#fff;
+    border: 2px solid #3b5998;
+    box-shadow: 5px 5px 5px #aaa;
+    font-size: 16px;
+}
+
+
+
+/* 基隆市地政處 */
+#cover_tabs_2-nav-0 a, #cover_tabs_2-nav-1 a, #cover_tabs_2-nav-2 a { font-size: 15px}
+#cover_tabs_2-nav-0 a:before{ content:"\f1ad"; font-size: 30px } /* building */
+#cover_tabs_2-nav-1 a:before{ content:"\f080"; font-size: 30px } /* bar-chart */
+#cover_tabs_2-nav-2 a:before{ content:"\f00e"; font-size: 30px } /* search-plus */
