@@ -32,8 +32,8 @@ items = api.content.find(context=portal, Type='News Item', featured=True, hasOld
         <a i18n:translate="tabs_home"
             tal:attributes="href view/navigation_root_url">Home</a>
       </li>
-      <li tal:repeat="crumb breadcrumbs"
-          tal:attributes="id string:breadcrumbs-${repeat/crumb/number};">
+      <tal:li repeat="crumb breadcrumbs">
+        <li tal:condition="not:repeat/crumb/end" tal:attributes="id string:breadcrumbs-${repeat/crumb/number};">
         <tal:item tal:define="is_last repeat/crumb/end;
                                 url crumb/absolute_url;
                                 title crumb/Title">
@@ -44,11 +44,13 @@ items = api.content.find(context=portal, Type='News Item', featured=True, hasOld
               tal:content="title">
                   crumb
           </a>
-          <span id="breadcrumbs-current"
+<!--          <span id="breadcrumbs-current"
                 tal:condition="is_last"
                 tal:content="title">crumb</span>
+-->
         </tal:item>
-      </li>
+        </li>
+      </tal:li>
     </ol>
 </nav>
 

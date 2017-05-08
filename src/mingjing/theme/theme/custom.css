@@ -695,3 +695,6 @@ ul.listing.table li {
 #cover_tabs_2-nav-0 a:before{ content:"\f1ad"; font-size: 30px } /* building */
 #cover_tabs_2-nav-1 a:before{ content:"\f080"; font-size: 30px } /* bar-chart */
 #cover_tabs_2-nav-2 a:before{ content:"\f00e"; font-size: 30px } /* search-plus */
+body.news-content #content-core h1.news-title { font-size: 20px }
+body.news-content #content-core ul.meta { margin-top: 25px}
+body.news-content #content-core ul.meta li { font-size: 14px; margin:10px 0 }

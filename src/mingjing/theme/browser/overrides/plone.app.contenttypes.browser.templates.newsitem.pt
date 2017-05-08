@@ -13,6 +13,7 @@
 
 <?python
 from plone import api
+import json
 current = api.user.get_current()
 isPaid = not api.user.is_anonymous() and api.user.has_permission('MingJing News: Paid', user=current)
 ?>
@@ -20,15 +21,22 @@ isPaid = not api.user.is_anonymous() and api.user.has_permission('MingJing News:
 <div class="row">
     <div class="col-sm-12">
 
-<h1>${context/title}</h1>
-
+<h1 class="news-title">${context/title}</h1>
+<ul class="meta">
+    <li>分類: ${context/cateL1}</li>
+    <li>次分類: ${context/cateL2}</li>
+    <li>發佈單位: ${context/pubUnit}</li>
+    <li tal:condition="python:context.effective().year() > 2008">發佈時間: ${python: context.effective().strftime('%Y/%m/%d')}</li>
+    <li tal:condition="python:context.effective().year() < 2008">發佈時間: ${python: context.created().strftime('%Y/%m/%d')}</li>
+</ul>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox"></div>
+<div class="addthis_inline_share_toolbox pull-right"></div>
 <div class="row">
 <div class="col-md-12">
-<p style="float:right">發佈時間: ${python:context.created().strftime('%Y/%m/%d %H:%M')}</p>
+<p style="float:right">發佈時間: ${python:context.effective().strftime('%Y/%m/%d %H:%M')}</p>
 </div>
 </div>
+<h4 class="detail">詳細內容：</h4>
             <div id="parent-fieldname-text"
                  tal:condition="context/text"
                  tal:content="structure python:context.text.output_relative_to(view.context)"
@@ -36,6 +44,12 @@ isPaid = not api.user.is_anonymous() and api.user.has_permission('MingJing News:
             </div>
 
 </div>
+
+<h4 class="detail">檔案下載：</h4>
+<ul tal:define="dfilesString context/dfilesString;
+                items python:json.loads(dfilesString)">
+    <li tal:repeat="item items"><a href="${python:item[1]}">${python:item[0]}</a></li>
+</ul>
 
 
 
