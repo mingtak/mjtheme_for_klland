@@ -65,18 +65,24 @@ tabs.reverse()
             <td style="padding:5px 10px">
                  [ <tal:type replace="item/Type"/> ]
                  <tal:switch switch="item/Type">
-                     <span style="margin-left:10px">${item/title}</span>
-                     <a tal:case="string:Folder" href="${item/absolute_url}/folder_contents" style="margin:0 20px;">
+                     <a tal:case="string:Folder" href="${item/absolute_url}/folder_contents" style="margin:0 10px;">
                          (進入目錄)
                      </a>
-                     <a tal:case="default" href="${item/absolute_url}/edit" style="margin:0 20px;">
+                     <a tal:case="default" href="${item/absolute_url}/edit" style="margin:0 5px;">
                          (編輯)
                      </a>
                  </tal:switch>
-                 <tal:view switch="item/Type">
-                     <a tal:case="string:Faq" class="viewpage" href="${portal/absolute_url}/faq?view=true" target="_blank">(閱覽)</a>
-                     <a tal:case="default" class="viewpage" href="${item/absolute_url}?view=true" target="_blank">(閱覽)</a>
-                 </tal:view>
+                 <a class="viewpage" href="${item/absolute_url}?view=true" target="_blank">(閱覽)</a>
+
+                 <span class="featured"
+                       tal:condition="python:hasattr(item, 'featured') and api.user.get_permissions().get('Review portal content')">
+                     權重: <input value="${item/headWeight}" style="width:50px"
+                                  type="number" class="headweight" name="headweight"
+                                  id="h-${item/UID}">
+                 </span>
+                 <span style="margin-left:10px">${item/title}</span>
+
+
             </td>
             <td style="padding:5px 10px">
                 <a tal:condition="python:item.Type() in ['Product', 'Faq', 'Page', 'Page with Image', 'News Item']"
@@ -121,10 +127,36 @@ var vm = new Vue({
         });
     },
   },
-
 });
 
 </script>
+
+<script>
+$(".headweight").change(function(obj){
+  uid = obj.target.id;
+  uid = uid.split('h-')[1];
+  value = obj.target.value;
+
+  $.ajax({
+    type: "POST",
+    url: '${portal/absolute_url}/set_featured',
+    data: {'uid':uid, 'headWeight':value},
+//    success: alert('已完成設定'),
+  });
+
+});
+</script>
+
+
+<style type="text/css">
+#custom-folder-contents { margin: 50px 0}
+#custom-folder-contents td { border: solid 1px; padding: 8px}
+.featured { color:red }
+.featured .headweight { color:#555; }
+.featured .featured-checkbox { margin-right:20px }
+.path { margin-top:50px}
+.viewpage { margin: 0 10px}
+</style>
 
 
     </metal:content-core>
