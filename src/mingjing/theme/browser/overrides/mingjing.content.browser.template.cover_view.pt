@@ -77,7 +77,7 @@ tabsNameList_1, tabsBrain_1, tabsNameList_2, tabsBrain_2, tabsNameList_3, tabsBr
 
 
 <!-- 影音專區 -->
-        <h3 class="category-title">
+<!--        <h3 class="category-title">
           <span>影音專區</span>
         </h3>
 
@@ -88,7 +88,7 @@ tabsNameList_1, tabsBrain_1, tabsNameList_2, tabsBrain_2, tabsNameList_3, tabsBr
                 <metal:macro use-macro="context/@@mingjing_macro/macros/live_slider" />
             </div>
         </div>
-
+-->
 
 
 <!-- 相關連結 -->
