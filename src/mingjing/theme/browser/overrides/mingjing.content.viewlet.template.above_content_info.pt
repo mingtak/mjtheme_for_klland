@@ -2,7 +2,7 @@
 from plone import api
 portal = api.portal.get()
 LIMIT = 6
-items = api.content.find(context=portal, Type='News Item', featured=True, hasOldPicture=True, sort_on="created", sort_order="reverse", sort_limit=LIMIT)[:LIMIT]
+items = api.content.find(context=portal, Type='News Item', sort_on="created", sort_order="reverse", sort_limit=LIMIT)[:LIMIT]
 ?>
 
 <div class="above-content-info">
@@ -12,11 +12,11 @@ items = api.content.find(context=portal, Type='News Item', featured=True, hasOld
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="tt-el-ticker">
-                                <strong class="fastest-news">快訊 <i class="fa fa-angle-double-right" aria-hidden="true"></i> </strong>
+                                <strong class="fastest-news"><i class="fa fa-angle-double-right" aria-hidden="true"></i> </strong>
                                 <span class="entry-ticker fastest-news-title fastest-news">
                                     <span tal:repeat="item items">
                                         <a href="${item/getURL}" class="fastest-news">
-                                            ${python:item.Description[0:180]}${python:'...' if len(item.Description)>180 else None}
+                                            ${python:item.Title[0:160]}${python:'...' if len(item.Title)>160 else None}
                                         </a>
                                     </span>
                                 </span>

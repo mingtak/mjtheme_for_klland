@@ -30,7 +30,7 @@ isPaid = not api.user.is_anonymous() and api.user.has_permission('MingJing News:
     <li tal:condition="python:context.effective().year() < 2008">發佈時間: ${python: context.created().strftime('%Y/%m/%d')}</li>
 </ul>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox pull-right"></div>
+<!-- <div class="addthis_inline_share_toolbox pull-right"></div> -->
 <div class="row">
 <div class="col-md-12">
 <p style="float:right">發佈時間: ${python:context.effective().strftime('%Y/%m/%d %H:%M')}</p>

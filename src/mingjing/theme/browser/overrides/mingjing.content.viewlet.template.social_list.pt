@@ -4,7 +4,7 @@ portal = api.portal.get()
 ?>
 
 <div class="social-list">
-
+<!--
 <a title="Facebook" href="javascript:void(0)" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
 <a title="Plurk" href="javascript:void(0)" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
 <a title="Youtube" href="javascript:void(0)" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
@@ -17,5 +17,6 @@ portal = api.portal.get()
         </a>
         <i class="fa fa-bars burger-menu pm-right" aria-hidden="true"></i>
     </div>
+-->
 </div>
 

@@ -19,8 +19,6 @@ from plone import api
 <div class="row">
     <div class="col-sm-12">
     <h1>${context/title}</h1>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_inline_share_toolbox"></div>
 
 
   <div id="parent-fieldname-text"

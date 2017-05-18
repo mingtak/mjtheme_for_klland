@@ -1,4 +1,6 @@
-            <div class="panel-header">
+            <div class="panel-header"
+                 style="background: url('/resource/images/headbg.png/@@images/image') no-repeat center fixed;
+                        background-size: cover;">
                 <div class="container">
                     <div class="row">
 <?python
@@ -20,14 +22,18 @@ weekDay = {'0':'日', '1':'一', '2':'二', '3':'三', '4':'四', '5':'五', '6'
                             </div>
 
 <div class="col-lg-2 col-md-6 header-date">
-<span>
-${now/year}年${now/month}月${now/day}日<br>
-${now/hour}時${now/minute}分 星期${python:weekDay[now.strftime('%w')]}
-</span>
+    <span style="color:#fff">
+        ${now/year}年${now/month}月${now/day}日<br>
+        ${now/hour}時${now/minute}分 星期${python:weekDay[now.strftime('%w')]}
+    </span>
 </div>
 
 
 <div class="logo-side-ad col-lg-8 col-md-12" style="margin-bottom:8px">
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="addthis_inline_share_toolbox pull-right"></div>
+
 <!-- 未定 -->
 </div>
 
