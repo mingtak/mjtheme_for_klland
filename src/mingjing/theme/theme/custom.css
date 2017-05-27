@@ -699,3 +699,28 @@ ul.listing.table li {
 body.news-content #content-core h1.news-title { font-size: 20px }
 body.news-content #content-core ul.meta { margin-top: 25px}
 body.news-content #content-core ul.meta li { font-size: 14px; margin:10px 0 }
+.template-search input[type=button], .template-search input[type=submit] { border:initial }
+.template-search input[type=button]:hover, .template-search input[type=submit]:hover {
+    background-color:initial;
+    background-position: initial;
+}
+.template-search h1.documentFirstHeading { font-size: 24px }
+.template-search #results-count { font-size: 18px }
+.template-search p.discreet.croppedDescription { margin-bottom:5px }
+#searchform .searchField {
+    line-height:32px;
+    padding:0 0 3px 0;
+}
+#searchform .searchButton {
+    color:#555;
+    font-weight:100;
+    letter-spacing:3px;
+    line-height:28px;
+    border-radius:3px;
+    margin-left:10px;
+    border:none;
+    background-color:initial;
+    background-position: initial;
+}
+
+.live_slider_item .related-ad { width:135px; height:45px }

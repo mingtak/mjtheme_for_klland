@@ -14,17 +14,19 @@
 <?python
 from plone import api
 import json
-current = api.user.get_current()
-isPaid = not api.user.is_anonymous() and api.user.has_permission('MingJing News: Paid', user=current)
+parent = context.getParentNode()
+pParent = parent.getParentNode()
+pParent = pParent if pParent.Type() == 'Folder' else None
+cateL1 = pParent.title if pParent else parent.title
+cateL2 = parent.title if pParent else ''
 ?>
-
 <div class="row">
     <div class="col-sm-12">
 
 <h1 class="news-title">${context/title}</h1>
 <ul class="meta">
-    <li>分類: ${context/cateL1}</li>
-    <li>次分類: ${context/cateL2}</li>
+    <li>分類: ${cateL1}</li>
+    <li>次分類: ${cateL2}</li>
     <li>發佈單位: ${context/pubUnit}</li>
     <li tal:condition="python:context.effective().year() > 2008">發佈時間: ${python: context.effective().strftime('%Y/%m/%d')}</li>
     <li tal:condition="python:context.effective().year() < 2008">發佈時間: ${python: context.created().strftime('%Y/%m/%d')}</li>
@@ -46,7 +48,7 @@ isPaid = not api.user.is_anonymous() and api.user.has_permission('MingJing News:
 </div>
 
 <h4 class="detail">檔案下載：</h4>
-<ul tal:define="dfilesString context/dfilesString;
+<ul tal:define="dfilesString python:context.dfilesString if context.dfilesString else '[]';
                 items python:json.loads(dfilesString)">
     <li tal:repeat="item items"><a href="${python:item[1]}">${python:item[0]}</a></li>
 </ul>

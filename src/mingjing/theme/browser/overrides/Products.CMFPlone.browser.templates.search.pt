@@ -107,7 +107,7 @@
 
               <metal:searchresults define-macro="search_results">
                 <div class="autotabs">
-                  <nav class="autotoc-nav" id="searchResultsSort">
+<!--                  <nav class="autotoc-nav" id="searchResultsSort">
                     <span i18n:translate="sort_by" class="autotab-heading">Sort by</span>
                       <span id="sorting-options">
                         <metal:sorting define-macro="sorting">
@@ -121,6 +121,7 @@
                         </metal:sorting>
                       </span>
                     </nav>
+-->
                     <div id="search-results"
                          tal:define="navigation_root_url context/@@plone_portal_state/navigation_root_url;">
 
@@ -204,7 +205,7 @@
                                 Cropped description
                               </p>
 
-                              <cite class="documentLocation link-location"
+<!--                              <cite class="documentLocation link-location"
                                     tal:define="breadcrumbs python: view.breadcrumbs(item);
                                                 is_rtl context/@@plone_portal_state/is_rtl;"
                                     tal:condition='breadcrumbs'>
@@ -224,6 +225,7 @@
                                   </tal:item>
                                 </span>
                               </cite>
+-->
                             </li>
                           </tal:results>
                         </ol>

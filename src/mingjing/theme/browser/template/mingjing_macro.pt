@@ -132,7 +132,7 @@
 <div class="${col} owl-theme owl-carousel">
   <div class="live_slider_item" tal:repeat="item items">
       <a href="${item/getURL}" title="${item/Title}" target="_blank">
-          <img src="${item/getURL}/@@images/image/mini" alt="${item/Title}" />
+          <img class="related-ad" src="${item/getURL}/@@images/image/mini" alt="${item/Title}" />
       </a>
   </div>
 </div>
