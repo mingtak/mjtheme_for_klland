@@ -127,10 +127,10 @@ $(document).ready(function(){
   $(function() {
       var lang = getCookie('lang');
       if(lang == 'tw'){     
-          $("body").s2t();
+//          $("body").s2t();
 //          document.getElementById('portaltab-s2t').innerHTML = '简';
       }else{
-          $("body").t2s();
+//          $("body").t2s();
 //          document.getElementById('portaltab-s2t').innerHTML = '繁';
       }
   });
@@ -138,12 +138,12 @@ $(document).ready(function(){
   $("#portaltab-s2t").click(function(){
       var lang = getCookie('lang');
       if(lang == 'tw'){
-          setCookie('lang', 'cn');
-          $("body").t2s();
+//          setCookie('lang', 'cn');
+//          $("body").t2s();
 //          document.getElementById('portaltab-s2t').innerHTML = '繁';
       }else{
-          setCookie('lang', 'tw');
-          $("body").s2t();
+//          setCookie('lang', 'tw');
+//          $("body").s2t();
 //          document.getElementById('portaltab-s2t').innerHTML = '简';
       }
   });

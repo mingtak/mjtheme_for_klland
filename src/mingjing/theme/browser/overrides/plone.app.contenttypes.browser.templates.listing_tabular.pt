@@ -43,7 +43,11 @@
                   <tal:block tal:repeat="field view/tabular_fields">
 
                     <span tal:condition="python:field == 'Title'">
-[${item/Type}]
+<tal:type switch="item/Type">
+    <tal:f case="string:Folder">[${item/Type}]</tal:f>
+<!--    <tal:f case="default">[頁面]</tal:f>
+-->
+</tal:type>
                       <a href="#"
                           tal:attributes="href item_link;
                           class string:$item_wf_state_class $item_type_class;
@@ -51,7 +55,7 @@
                           tal:content="item_title">
                         Item Title
                       </a>
-...${python:item.created.strftime('%Y-%m-%d')}
+<tal:date condition="python:item.Type() != 'Folder'">...${python:item.created.strftime('%Y-%m-%d')}</tal:date>
                     </span>
 
                   </tal:block>

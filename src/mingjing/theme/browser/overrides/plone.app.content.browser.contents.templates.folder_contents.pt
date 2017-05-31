@@ -80,6 +80,7 @@ tabs.reverse()
                                   type="number" class="headweight" name="headweight"
                                   id="h-${item/UID}">
                  </span>
+
                  <span style="margin-left:10px">${item/title}</span>
 
 

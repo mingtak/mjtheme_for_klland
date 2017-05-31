@@ -724,3 +724,10 @@ body.news-content #content-core ul.meta li { font-size: 14px; margin:10px 0 }
 }
 
 .live_slider_item .related-ad { width:135px; height:45px }
+.multiple_page ul {padding-left: 50px}
+
+.navTree.navTreeLevel0 { list-style-type: none; padding-left:10px}
+.navTree.navTreeLevel0 li:before { content: "\f101"; font-family: Fontawesome; }
+
+.navTree.navTreeLevel1 { list-style-type: none; padding-left:25px}
+.navTree.navTreeLevel1 li:before { content: "\f105"; font-family: Fontawesome; }
