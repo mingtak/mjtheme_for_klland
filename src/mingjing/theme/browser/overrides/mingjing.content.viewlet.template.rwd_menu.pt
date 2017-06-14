@@ -20,21 +20,21 @@ portal = api.portal.get()
                         <div class="pm-wrap">
                         
                             <a href="javascript:;" class="close-menu"></a>
-                            
+<!--
                             <div class="pm-socials">
                                 <a target="_blank" href="javascript:void(0)"><i class="fa fa-facebook"></i></a>
                                 <a target="_blank" href="javascript:void(0)"><i class="fa fa-twitter"></i></a>
                                 <a target="_blank" href="javascript:void(0)"><i class="fa fa-youtube"></i></a>
                                 <a target="_blank" href="${portal/absolute_url}/resource/pages/rss"><i class="fa fa-rss"></i></a>
                             </div>
-
+-->
 
 <div class="text-center">
 
 
 </div>
                             <div class="rwd-menu-logo">
-                                <img src="${portal/absolute_url}/logo_black.png" alt="${portal/title}">
+<!--                                <img src="${portal/absolute_url}/logo_black.png" alt="${portal/title}"> -->
 <!--                                <div class="auth-name">
                                     <h4><a href="${portal/absolute_url}">基隆市政府地政處</a></h4>
                                     <p><a href="javascript:;">Land.Klcg.gov.tw</a></p>
@@ -42,7 +42,7 @@ portal = api.portal.get()
 -->
                             </div>
 
-                            <h4 class="pm-en-title">主 選 單</h4>
+                            <h3 class="pm-en-title">主 選 單</h3>
 
                             <nav class="big-menu">
 
