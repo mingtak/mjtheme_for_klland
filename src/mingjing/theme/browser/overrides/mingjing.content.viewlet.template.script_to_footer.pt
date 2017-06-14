@@ -99,11 +99,23 @@ $(document).ready(function(){
 
 <!-- Related Ad -->
 <script>
+
+bWidth = $(window).width();
+if(bWidth>=600){
+    adItems = 6;
+}
+else if(bWidth>=480){
+    adItems = 4;
+}else{
+    adItems = 3;
+};
+//alert(bWidth);
+
 $(document).ready(function(){
         $(".related-ad-12").owlCarousel({
 //            stagePadding: 150,
             margin:3,
-            items: 6,
+            items: adItems,
             autoplay:true,
             loop:true,
             nav:false,

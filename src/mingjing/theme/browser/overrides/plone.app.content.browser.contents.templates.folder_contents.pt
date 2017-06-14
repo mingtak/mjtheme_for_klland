@@ -56,6 +56,7 @@ tabs.reverse()
         <tr>
             <td>標題</td>
             <td>狀態</td>
+            <td>刪除</td>
             <td>建立時間</td>
         </tr>
     </thead>
@@ -74,13 +75,6 @@ tabs.reverse()
                  </tal:switch>
                  <a class="viewpage" href="${item/absolute_url}?view=true" target="_blank">(閱覽)</a>
 
-                 <span class="featured"
-                       tal:condition="python:hasattr(item, 'featured') and api.user.get_permissions().get('Review portal content')">
-                     權重: <input value="${item/headWeight}" style="width:50px"
-                                  type="number" class="headweight" name="headweight"
-                                  id="h-${item/UID}">
-                 </span>
-
                  <span style="margin-left:10px">${item/title}</span>
 
 
@@ -91,6 +85,14 @@ tabs.reverse()
                    id="trans-${item/UID}"
                    class="${python:api.content.get_state(obj=item)}">
                    ${python:api.content.get_state(obj=item)}
+                </a>
+            </td>
+            <td style="padding:5px 10px">
+                <a tal:condition="python:item.Type() in ['Product', 'Faq', 'Page', 'Page with Image', 'News Item']"
+                   v-on:click="delObj" href="javascript:void(0)"
+                   id="delete-${item/UID}"
+                   class="${python:api.content.get_state(obj=item)}">
+                   刪除
                 </a>
             </td>
             <td style="padding:5px 10px"> ${python:item.created().strftime('%Y/%m/%d %H:%M')}</td>
@@ -126,6 +128,17 @@ var vm = new Vue({
         $.get(url, function(result){
             location.reload();
         });
+    },
+    delObj: function (el) {
+        uid = el.target.id.split('-')[1];
+        url = "${portal/absolute_url}/@@delete_obj?uid=" + uid;
+        if(confirm('按下確認後刪除')){
+            $.get(url, function(result){
+                location.reload();
+            });
+        }else{
+//            alert("你按下取消");
+        }
     },
   },
 });

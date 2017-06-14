@@ -1,6 +1,7 @@
 <?python
 from plone import api
 portal = api.portal.get()
+links = [('1', '單位介紹'), ('3', '線上查詢'), ('4', '線上申辦'), ('5', '便民服務'), ('6', '業務專區')]
 ?>
 <div class="row">
 	<div class="col-xs-12">
@@ -8,14 +9,30 @@ portal = api.portal.get()
 <section class="portlet portletClassic" id="portal-footer-signature">
     <div class="portletContent">
         <div class="row">
-            <div class="col-xs-12">
-
-基隆市政府地政處 版權所有© ${view/year} Keelung City Government. All Rights Reserved
- │ 隱私權 │ 安全政策 │ <a href="${portal/absolute_url}/folder_contents">員工專區</a> <br>
-地址：基隆市義一路一號二樓　電話：(02)2420-1122 #2403~2416 或直撥1999(基隆市境內直撥) <br>
-傳真：(02)2422-7791 本網頁設計支援IE9、Firefox及Chrome，採自適應瀏覽設計
-
+            <div class="col-xs-12 col-md-4">
+基隆市政府地政處 版權所有©<br>
+${view/year} Keelung City Government. All Rights Reserved<br>
+地址：基隆市義一路一號二樓<br>
+電話：(02)2420-1122 #2403~2416 或直撥1999(基隆市境內直撥) <br>
+傳真：(02)2422-7791<br>
+本網頁設計支援IE9、Firefox及Chrome，採自適應設計<br>
+隱私權 │ 安全政策 │ <a href="${portal/absolute_url}/folder_contents">員工專區</a> <br>
             </div>
+
+
+            <div class="col-xs-12 col-md-2" tal:repeat="link links">
+<h4>${python:link[1]}</h4>
+<ul>
+  <li tal:repeat="item python:list(portal[link[0]].getChildNodes())[0:5]">
+    <a href="${item/absolute_url}" target="_blank">${item/title}</a>
+  </li>
+  <a href="${python:portal[link[0]].absolute_url()}" class="pull-right more"
+     tal:condition="python:len(list(portal[link[0]].getChildNodes())) > 5">...更多選項</a>
+</ul>
+            </div>
+
+
+
         </div>
     </div>
 </section>

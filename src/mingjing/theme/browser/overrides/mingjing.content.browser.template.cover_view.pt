@@ -32,6 +32,7 @@ externalAd = view.externalAd()
 todayNews = view.todayNews()
 tabsNameList_1, tabsBrain_1, tabsNameList_2, tabsBrain_2, tabsNameList_3, tabsBrain_3 = view.tabsNameLists()
 #ebooks = view.ebooks()
+bgColor = ['#FFC355', '#7DDBAB', '#76CCF2', '#AF75F0', '#7799EE', '#FEFA40']
 ?>
 
 <!-- 首頁 Main slider start -->
@@ -51,9 +52,45 @@ tabsNameList_1, tabsBrain_1, tabsNameList_2, tabsBrain_2, tabsNameList_3, tabsBr
 <section>
     <div class="parallax-content">
 
-<!-- Tabs -->
+<!-- Tabs & Maps-->
         <div class="row">
-            <div class="col-sm-12"
+            <div class="col-sm-6">
+              <div class="row">
+               <div class="col-sm-12">
+
+                <h3 style="margin-top:8px">基隆市各地政事務所</h3>
+                <p>請點選區域連結至管轄地政事務所</p>
+                <div id="mapLink">
+                    <div id="apDiv1">
+                        <ul class="convert">
+                            <li>
+                                <a href="http://anleh-land.gov.tw" tabindex="0" title="本所源自「基隆市地政事務所」（於民國41年4月成立），自民國85年7月1日分所後，改為「基隆市安樂地政事務所」，轄管基隆市七堵區、暖暖區、中山區及安樂區的地政相關業務。" target="_blank">安樂區地政事務所</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="apDiv2">
+                        <ul class="convert2">
+                            <li>
+                                <a href="http://www.sinyi-land.gov.tw/" tabindex="0" title="本所源於基隆市地政事務所(自民國85年7月1日分出)，轄管基隆市中正區、仁愛區及信義區的地政相關業務。" target="_blank">信義區地政事務所</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <a href="http://anleh-land.gov.tw" title="安樂地政事務所" target="_blank">
+                    <img src="/klland/++resource++mingjing.theme/images/mapBtn1.jpg" alt="安樂地政事務所"></img>
+                </a>
+                <a href="http://www.sinyi-land.gov.tw/" title="信義地政事務所" target="_blank">
+                    <img src="/klland/++resource++mingjing.theme/images/mapBtn2.jpg" alt="信義地政事務所"></img>
+                </a>
+
+               </div>
+              </div>
+              <hr>
+
+            </div>
+
+            <div class="col-sm-6"
                  tal:define="tabs_name tabsNameList_1;
                              tabs_id_prefix string:cover_tabs_1;
                              brains python:tabsBrain_1;">
@@ -61,7 +98,25 @@ tabsNameList_1, tabsBrain_1, tabsNameList_2, tabsBrain_2, tabsNameList_3, tabsBr
             </div>
         </div>
 
+
+<!-- Related URL -->
+        <div id="cover-related-link" class="row" tal:condition="context/relatedURL">
+            <tal:block repeat="item context/relatedURL">
+                <div class="col-sm-12 col-md-4">
+                    <a href="${python:item.split('|||')[1]}" title="item.split('|||')[0]" target="_blank">
+                        <div class="block"
+                             style="background-color:${python:bgColor[repeat['item'].index % 6]}">
+                            ${python:item.split('|||')[0]}
+                        </div>
+                    </a>
+                </div>
+            </tal:block>
+        </div>
+<hr>
+
+
 <!-- Tabs -->
+<!--
         <div class="row">
             <div class="col-sm-12"
                  tal:define="tabs_name tabsNameList_2;
@@ -70,9 +125,10 @@ tabsNameList_1, tabsBrain_1, tabsNameList_2, tabsBrain_2, tabsNameList_3, tabsBr
                 <metal:macro use-macro="context/@@mingjing_macro/macros/views_tabs" />
             </div>
         </div>
-
+-->
 
     </div>
+
     <!-- end .parallax-content -->
 
 <!-- 相關連結 -->

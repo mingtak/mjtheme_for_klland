@@ -731,3 +731,87 @@ body.news-content #content-core ul.meta li { font-size: 14px; margin:10px 0 }
 
 .navTree.navTreeLevel1 { list-style-type: none; padding-left:25px}
 .navTree.navTreeLevel1 li:before { content: "\f105"; font-family: Fontawesome; }
+
+#footer h4 { margin-top:0 }
+#footer ul { padding-left: 5px }
+#footer ul li { list-style-type: none; }
+#footer ul li a:before { content: "\f0da"; font-family: Fontawesome; margin-right: 5px; }
+#footer ul li a:hover {color:#0df}
+#footer a.more { color: #0df }
+
+
+#cover-related-link .block {
+    margin:10px 0;
+    padding:40px;
+    border-radius:10px;
+    text-align:center;
+    font-size:18px;
+    white-space:nowrap;
+    box-shadow: 5px 5px 5px #aaa;
+}
+
+/* 首頁map begin*/
+#mapLink { min-height:300px }
+#apDiv1 {
+	position: absolute;
+	height: 281px;
+	z-index: 12;
+	width: 300px;
+}
+ul.convert {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+ul.convert li {
+	display: inline;
+}
+ul.convert li a {
+	display: block;
+	height: 281px;
+	width: 298px;
+	text-decoration: none;
+	background-image: url(/klland/++resource++mingjing.theme/images/map_1.png);
+	text-indent: -99999px;
+	white-space: nowrap;
+}
+ul.convert li a:hover {
+	background-image: url(/klland/++resource++mingjing.theme/images/map_2.png);
+}
+#apDiv2 {
+	position: absolute;
+	width: 120px;
+	height: 132px;
+	z-index: 13;
+	margin-left: 178px;
+	margin-top: 37px;
+}
+ul.convert2 {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+ul.convert2 li {
+	display: inline;
+}
+ul.convert2 li a {
+	display: block;
+	height: 132px;
+	width: 120px;
+	text-decoration: none;
+	background-image: url(/klland/++resource++mingjing.theme/images/map_3.png);
+	text-indent: -99999px;
+	white-space: nowrap;
+}
+ul.convert2 li a:hover {
+	background-image: url(/klland/++resource++mingjing.theme/images/map_4.png);
+}
+#apDiv3 {
+	position: absolute;
+	width: 50px;
+	height: 25px;
+	margin-top: 5px;
+	margin-left: 430px;
+}
+/* 首頁map end*/
+
