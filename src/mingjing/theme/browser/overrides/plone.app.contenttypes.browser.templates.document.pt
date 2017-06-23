@@ -16,7 +16,10 @@ from plone import api
 import json
 parent = context.getParentNode()
 pParent = parent.getParentNode()
-pParent = pParent if pParent.Type() == 'Folder' else None
+if hasattr(pParent, 'Type'):
+    pParent = pParent if pParent.Type() == 'Folder' else None
+else:
+    pParent = None
 cateL1 = pParent.title if pParent else parent.title
 cateL2 = parent.title if pParent else ''
 ?>
