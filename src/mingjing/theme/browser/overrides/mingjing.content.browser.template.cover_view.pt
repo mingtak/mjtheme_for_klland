@@ -33,16 +33,18 @@ todayNews = view.todayNews()
 tabsNameList_1, tabsBrain_1, tabsNameList_2, tabsBrain_2, tabsNameList_3, tabsBrain_3 = view.tabsNameLists()
 #ebooks = view.ebooks()
 bgColor = ['#FFC355', '#7DDBAB', '#76CCF2', '#AF75F0', '#7799EE', '#FEFA40']
+faColor = ['#76ccf2', '#fefa40', '#af75f0', '#ffc355', '#f3ac1e', '#7ddbab']
 ?>
 
 <!-- 首頁 Main slider start -->
 <section tal:define="items python:list(view.mainSliders())[0:10];
                      main_slider_id string:cover_main_slider_1">
 
-        <h3 class="category-title cover-main-title">
+
+<!--        <h3 class="category-title cover-main-title">
           <span>基隆市政府地政處 歡迎您</span>
         </h3>
-
+-->
     <metal:macro use-macro="context/@@mingjing_macro/macros/normal_slider" />
 <!--    <metal:macro use-macro="context/@@mingjing_macro/macros/main_slider"/> -->
 </section>
@@ -61,6 +63,9 @@ bgColor = ['#FFC355', '#7DDBAB', '#76CCF2', '#AF75F0', '#7799EE', '#FEFA40']
                     <a href="${python:item.split('|||')[1]}" title="item.split('|||')[0]" target="_blank">
                         <div class="block"
                              style="background-color:${python:bgColor[repeat['item'].index % 6]}">
+                            <i class="fa fa-${python:item.split('|||')[2]} fa-6"
+                               style="font-size:100px; margin-bottom:15px;color:${python:faColor[repeat['item'].index % 6]}">
+                            </i><br>
                             ${python:item.split('|||')[0]}
                         </div>
                     </a>
@@ -128,10 +133,10 @@ bgColor = ['#FFC355', '#7DDBAB', '#76CCF2', '#AF75F0', '#7799EE', '#FEFA40']
     <!-- end .parallax-content -->
 
 <!-- 相關連結 -->
-        <h3 class="category-title">
+<!--        <h3 class="category-title">
           <span>相關連結</span>
         </h3>
-
+-->
         <div class="row">
             <div class="col-sm-12" tal:define="items python:externalAd;
                                                live_slider_id string:related_ad_1;
