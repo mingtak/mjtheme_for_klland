@@ -52,9 +52,39 @@ bgColor = ['#FFC355', '#7DDBAB', '#76CCF2', '#AF75F0', '#7799EE', '#FEFA40']
 <section>
     <div class="parallax-content">
 
+
+
+<!-- Related URL -->
+        <div id="cover-related-link" class="row" tal:condition="context/relatedURL">
+            <tal:block repeat="item context/relatedURL">
+                <div class="col-sm-12 col-md-4">
+                    <a href="${python:item.split('|||')[1]}" title="item.split('|||')[0]" target="_blank">
+                        <div class="block"
+                             style="background-color:${python:bgColor[repeat['item'].index % 6]}">
+                            ${python:item.split('|||')[0]}
+                        </div>
+                    </a>
+                </div>
+            </tal:block>
+        </div>
+<hr>
+
+
+
 <!-- Tabs & Maps-->
         <div class="row">
-            <div class="col-sm-6">
+
+            <div class="col-sm-7"
+                 tal:define="tabs_name tabsNameList_1;
+                             tabs_id_prefix string:cover_tabs_1;
+                             brains python:tabsBrain_1;">
+                <a href="${portal/absolute_url}/resource/rss/RSS" target="_blank" class="cover-rss">
+                    RSS<i class="fa fa-rss-square" aria-hidden="true"></i>
+                </a>
+                <metal:macro use-macro="context/@@mingjing_macro/macros/views_tabs" />
+            </div>
+
+            <div class="col-sm-5">
               <div class="row">
                <div class="col-sm-12">
 
@@ -90,42 +120,8 @@ bgColor = ['#FFC355', '#7DDBAB', '#76CCF2', '#AF75F0', '#7799EE', '#FEFA40']
 
             </div>
 
-            <div class="col-sm-6"
-                 tal:define="tabs_name tabsNameList_1;
-                             tabs_id_prefix string:cover_tabs_1;
-                             brains python:tabsBrain_1;">
-                <metal:macro use-macro="context/@@mingjing_macro/macros/views_tabs" />
-            </div>
         </div>
 
-
-<!-- Related URL -->
-        <div id="cover-related-link" class="row" tal:condition="context/relatedURL">
-            <tal:block repeat="item context/relatedURL">
-                <div class="col-sm-12 col-md-4">
-                    <a href="${python:item.split('|||')[1]}" title="item.split('|||')[0]" target="_blank">
-                        <div class="block"
-                             style="background-color:${python:bgColor[repeat['item'].index % 6]}">
-                            ${python:item.split('|||')[0]}
-                        </div>
-                    </a>
-                </div>
-            </tal:block>
-        </div>
-<hr>
-
-
-<!-- Tabs -->
-<!--
-        <div class="row">
-            <div class="col-sm-12"
-                 tal:define="tabs_name tabsNameList_2;
-                             tabs_id_prefix string:cover_tabs_2;
-                             brains python:tabsBrain_2;">
-                <metal:macro use-macro="context/@@mingjing_macro/macros/views_tabs" />
-            </div>
-        </div>
--->
 
     </div>
 

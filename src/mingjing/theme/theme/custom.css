@@ -815,3 +815,9 @@ ul.convert2 li a:hover {
 }
 /* 首頁map end*/
 
+.cover-rss {
+    font-size:24px;
+    float:right;
+    margin-right:10px;
+    color:#e82;
+}
