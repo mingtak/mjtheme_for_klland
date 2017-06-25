@@ -211,4 +211,13 @@ $(document).ready(function(){
   });
 */
 </script>
+
+<script>
+$("#foot-menu-show a").click(function(){
+  $("footer#footer").toggle('slow');
+});
+</script>
+
+
+
 </div>

@@ -3,12 +3,21 @@ from plone import api
 portal = api.portal.get()
 links = [('1', '單位介紹'), ('2', '訊息快報'), ('3', '線上查詢'), ('4', '線上申辦'), ('5', '便民服務'), ('6', '業務專區'), ('7', '網網相連'),]
 ?>
+
+
+<div id="foot-menu-show">
+    <a href="javascript:void(0)">展開 / 收合</a>
+</div>
+
 <div class="row">
 	<div class="col-xs-12">
 
 <section class="portlet portletClassic" id="portal-footer-signature">
+
     <div class="portletContent">
+
         <div class="row">
+
             <div class="col-xs-12 col-md-4">
 基隆市政府地政處 版權所有©<br>
 ${view/year} Keelung City Government. All Rights Reserved<br>
@@ -36,6 +45,20 @@ ${view/year} Keelung City Government. All Rights Reserved<br>
         </div>
     </div>
 </section>
+
+
+<div id="foot-copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>基隆市政府地政處 版權所有© ${view/year} Keelung City Government. All Rights Reserved</p>
+                <p>地址：基隆市義一路一號二樓 電話：(02)2420-1122 #2403~2416 或直撥1999(基隆市境內直撥) 傳真：(02)2422-7791</p>
+                <p class="last">本網頁設計支援IE9、Firefox及Chrome，採自適應設計 隱私權 │ 安全政策 │
+                   <a href="${portal/absolute_url}/folder_contents">員工專區</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 	</div>

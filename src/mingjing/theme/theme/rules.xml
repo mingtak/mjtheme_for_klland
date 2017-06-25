@@ -93,6 +93,16 @@
       css:theme-children="div.sub-footer div.container"
       />
 
+    <before
+      css:content="#foot-menu-show"
+      css:theme="footer#footer"
+      />
+
+    <after
+      css:content="#foot-copyright"
+      css:theme="footer#footer"
+      />
+
     <!-- script_to_footer -->
     <replace
       css:content-children="#script_to_footer"

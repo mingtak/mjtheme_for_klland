@@ -821,3 +821,16 @@ ul.convert2 li a:hover {
     margin-right:10px;
     color:#e82;
 }
+
+#foot-menu-show {
+    text-align:center;
+    padding-bottom:5px;
+    border-bottom: 2px solid #e22;
+}
+#foot-menu-show a { background-color:#8c8; padding:8px 15px; font-size:16px; color:#444 }
+#foot-copyright {
+    padding-top:5px;
+    border-top: 2px solid #e22; 
+}
+#foot-copyright div p { margin:0px; line-height:initial}
+#foot-copyright div p.last { padding-bottom:30px }
