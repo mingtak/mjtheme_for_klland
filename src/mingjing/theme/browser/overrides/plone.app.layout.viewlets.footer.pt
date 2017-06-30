@@ -18,18 +18,7 @@ links = [('1', '單位介紹'), ('2', '訊息快報'), ('3', '線上查詢'), ('
 
         <div class="row">
 
-            <div class="col-xs-12 col-md-4">
-基隆市政府地政處 版權所有©<br>
-${view/year} Keelung City Government. All Rights Reserved<br>
-地址：基隆市義一路一號二樓<br>
-電話：(02)2420-1122 #2403~2416 或直撥1999(基隆市境內直撥) <br>
-傳真：(02)2422-7791<br>
-本網頁設計支援IE9、Firefox及Chrome，採自適應設計<br>
-隱私權 │ 安全政策 │ <a href="${portal/absolute_url}/folder_contents">員工專區</a> <br>
-            </div>
-
-                <div class="col-xs-12 col-md-2" tal:repeat="link python:links[2:6]">
-
+            <div class="col-xs-12 col-md-2" tal:repeat="link python:links[1:-1]">
 <h4>${python:link[1]}</h4>
 <ul>
   <li tal:repeat="item python:list(portal[link[0]].getChildNodes())[0:5]">
@@ -38,8 +27,19 @@ ${view/year} Keelung City Government. All Rights Reserved<br>
   <a href="${python:portal[link[0]].absolute_url()}" class="pull-right more"
      tal:condition="python:len(list(portal[link[0]].getChildNodes())) > 5">...更多選項</a>
 </ul>
+            </div>
 
+
+
+            <div class="col-xs-12 col-md-2">
+                <div style="text-align:center">
+                    <a title="基隆市政府地政處 臉書專頁" href="https://www.facebook.com/klcgland" target="_blank">臉書專頁</a><br>
+                    <img alt="fb-qrcode"
+                         src="${portal/absolute_url}/resource/images/land_fb.png/@@images/image/mini"
+                         style="margin:10px auto; width:70%" />
                 </div>
+            </div>
+
 
 
         </div>

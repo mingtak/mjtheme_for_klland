@@ -23,10 +23,16 @@
     #header nav.main-nav > ul.plone-nav { display: none;}
     .user-profile { display:none; }
     .panel-ticker .container .row.submenu { display: none; }
+    .portlet-ad-listing .ad-image { text-align:center }
+    .portlet-ad-listing .ad-image img { width:45%; float:left; margin:5px }
+
 }
 
 @media(min-width: 640px) {
     #header nav.main-nav .burger-menu.pm-right { display: none;}
+    .portlet-ad-listing .ad-image { text-align:center }
+    .portlet-ad-listing .ad-image img { width:100%; margin: 2px auto }
+
 }
 
 @media (max-width: 480px) {
@@ -661,17 +667,24 @@ footer .categories { font-size: 18px; margin-top:30px}
     margin-top: 0px;
 }
 
+#login-form input[type=submit] { color:#333; border: 1px solid #566; border-radius:5px}
+#login-form input[type=submit]:hover { background-color: #ccc}
 .template-login_failed .col-md-12 article form,
 .template-login_form .col-md-12 article form,
-.template-logged_out .col-md-12 article form{margin:0px auto;text-align:center }
+.template-logged_out .col-md-12 article form{margin:0px auto }
 .button, button, input[type=button], input[type=submit] { padding: 5px 30px; color:#fe1}
 input[type=button]:hover, input[type=submit]:hover {background-color:#fe1}
 
+.field label { width:120px}
+
+/*
 body.template-logged_out #header,
 body.template-logged_out #footer,
 body.template-login_form #header,
 body.template-login_form #footer {display:none}
 body.template-login_form #content {margin-top:200px}
+*/
+
 /* .read-more { color:#36e !important; font-size:10px } */
 h3 .h3-title-more { float:right; font-size:18px; padding: 8px 10px 0 0 }
 .post .image { background-color: initial }
@@ -834,3 +847,5 @@ ul.convert2 li a:hover {
 }
 #foot-copyright div p { margin:0px; line-height:initial}
 #foot-copyright div p.last { padding-bottom:30px }
+
+.searchField.portlet-search-gadget { width:50% }

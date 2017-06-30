@@ -51,7 +51,7 @@ tabs.reverse()
 </h4>
 
 
-<table id="custom-folder-contents">
+<table id="custom-folder-contents" tal:condition="python:api.user.get_current().id != 'admin'">
     <thead>
         <tr>
             <td>標題</td>
