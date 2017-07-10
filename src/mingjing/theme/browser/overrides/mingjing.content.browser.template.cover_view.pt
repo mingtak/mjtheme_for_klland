@@ -32,8 +32,7 @@ externalAd = view.externalAd()
 todayNews = view.todayNews()
 tabsNameList_1, tabsBrain_1, tabsNameList_2, tabsBrain_2, tabsNameList_3, tabsBrain_3 = view.tabsNameLists()
 #ebooks = view.ebooks()
-bgColor = ['#FFC355', '#7DDBAB', '#76CCF2', '#AF75F0', '#7799EE', '#FEFA40']
-faColor = ['#76ccf2', '#fefa40', '#af75f0', '#ffc355', '#f3ac1e', '#7ddbab']
+rel_links = portal['resource']['rel_link'].getChildNodes()
 ?>
 
 <!-- 首頁 Main slider start -->
@@ -54,19 +53,15 @@ faColor = ['#76ccf2', '#fefa40', '#af75f0', '#ffc355', '#f3ac1e', '#7ddbab']
 <section>
     <div class="parallax-content">
 
-
-
 <!-- Related URL -->
-        <div id="cover-related-link" class="row" tal:condition="context/relatedURL">
-            <tal:block repeat="item context/relatedURL">
-                <div class="col-sm-12 col-md-4">
-                    <a href="${python:item.split('|||')[1]}" title="item.split('|||')[0]" target="_blank">
-                        <div class="block"
-                             style="background-color:${python:bgColor[repeat['item'].index % 6]}">
-                            <i class="fa fa-${python:item.split('|||')[2]} fa-6"
-                               style="font-size:100px; margin-bottom:15px;color:${python:faColor[repeat['item'].index % 6]}">
-                            </i><br>
-                            ${python:item.split('|||')[0]}
+        <div id="cover-related-link" class="row" tal:condition="rel_links">
+            <tal:block repeat="item rel_links">
+                <div class="col-sm-6 col-md-3">
+                    <a href="${item/url}" title="${item/title}" target="_blank">
+                        <div class="block" style="background-color:${item/color}">
+                            <img src="${item/absolute_url}/@@images/image/thumb" alt="${item/title}"/>
+                            <br>
+                            ${item/title}
                         </div>
                     </a>
                 </div>

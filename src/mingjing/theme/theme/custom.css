@@ -755,12 +755,16 @@ body.news-content #content-core ul.meta li { font-size: 14px; margin:10px 0 }
 
 #cover-related-link .block {
     margin:10px 0;
-    padding:40px;
+    padding:10px;
     border-radius:10px;
     text-align:center;
     font-size:18px;
-    white-space:nowrap;
+    word-break: break-all;
     box-shadow: 5px 5px 5px #aaa;
+}
+
+#cover-related-link .block img {
+    width:80px;
 }
 
 /* 首頁map begin*/
