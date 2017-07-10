@@ -51,10 +51,11 @@ tabs.reverse()
 </h4>
 
 
-<table id="custom-folder-contents" tal:condition="python:api.user.get_current().id != 'admin'">
+<table id="custom-folder-contents" talcondition="python:api.user.get_current().id != 'admin'">
     <thead>
         <tr>
             <td>標題</td>
+            <td>權重</td>
             <td>狀態</td>
             <td>刪除</td>
             <td>建立時間</td>
@@ -79,6 +80,16 @@ tabs.reverse()
 
 
             </td>
+            <td>
+                 <span class="featured"
+                       tal:condition="python:hasattr(item, 'featured') and api.user.get_permissions().get('Review portal content')">
+                     權重: <input value="${item/headWeight}"
+                                  type="number" class="headweight" name="headweight"
+                                  id="h-${item/UID}" style="width:50%">
+                 </span>
+
+            </td>
+
             <td style="padding:5px 10px">
                 <a tal:condition="python:item.Type() in ['Product', 'Faq', 'Page', 'Page with Image', 'News Item']"
                    v-on:click="trans" href="javascript:void(0)"

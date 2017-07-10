@@ -55,6 +55,24 @@ cateL2 = parent.title if pParent else ''
     <li tal:repeat="item items"><a href="${python:item[1]}">${python:item[0]}</a></li>
 </ul>
 
+
+<div id="content-log" tal:condition="python:not api.user.is_anonymous()">
+    <h5>編輯記錄</h5>
+    <table>
+        <tr class="head">
+            <td class="td-1">時間</td>
+            <td class="td-2">帳號</td>
+            <td class="td-3">操作</td>
+        </tr>
+        <tr tal:repeat="row context/contentLog">
+            <td tal:repeat="item python:row.split(',')"
+                tal:content="item"
+                tal:attributes="class string:td-${repeat/item/number}"></td>
+        </tr>
+    </table>
+</div>
+
+
 </metal:content-core>
 </metal:content-core>
 

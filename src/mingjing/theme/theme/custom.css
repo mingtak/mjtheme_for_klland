@@ -853,3 +853,13 @@ ul.convert2 li a:hover {
 #foot-copyright div p.last { padding-bottom:30px }
 
 .searchField.portlet-search-gadget { width:50% }
+
+#content-log table { width: 100% }
+#content-log tr { text-align:center }
+#content-log table, #content-log tr, #content-log td {
+    border: 1px solid black;
+}
+#content-log td.td-1 { width:40%}
+#content-log td.td-2 { width:30%}
+#content-log td.td-3 { width:30%}
+#content-log tr.head { background-color:#ccc }
