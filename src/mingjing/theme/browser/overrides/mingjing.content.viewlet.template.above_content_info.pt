@@ -3,6 +3,7 @@ from plone import api
 portal = api.portal.get()
 LIMIT = 6
 items = api.content.find(context=portal['2']['1'], Type='Page', sort_on="created", sort_order="reverse", sort_limit=LIMIT)[:LIMIT]
+marquees = portal['cover'].marquee
 ?>
 
 <div class="above-content-info">
@@ -14,6 +15,13 @@ items = api.content.find(context=portal['2']['1'], Type='Page', sort_on="created
                             <div class="tt-el-ticker">
                                 <strong class="fastest-news"><i class="fa fa-angle-double-right" aria-hidden="true"></i> </strong>
                                 <span class="entry-ticker fastest-news-title fastest-news">
+
+                                    <span tal:repeat="item marquees">
+                                        <a href="javascript:void(0)" class="fastest-news">
+                                            ${python:item[0:160]}${python:'...' if len(item)>160 else None}
+                                        </a>
+                                    </span>
+
                                     <span tal:repeat="item items">
                                         <a href="${item/getURL}" class="fastest-news">
                                             ${python:item.Title[0:160]}${python:'...' if len(item.Title)>160 else None}
