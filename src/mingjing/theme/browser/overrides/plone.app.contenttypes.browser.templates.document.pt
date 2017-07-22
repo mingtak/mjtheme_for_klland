@@ -49,12 +49,15 @@ cateL2 = parent.title if pParent else ''
             </div>
 </div>
 
+<metal:macro use-macro="context/@@mingjing_macro/macros/named_blob_image" />
+
 <h4 class="detail">檔案下載：</h4>
 <ul tal:define="dfilesString python:context.dfilesString if context.dfilesString else '[]';
                 items python:json.loads(dfilesString)">
     <li tal:repeat="item items"><a href="${python:item[1]}">${python:item[0]}</a></li>
 </ul>
 
+<metal:macro use-macro="context/@@mingjing_macro/macros/named_blob_file" />
 
 <div id="content-log" tal:condition="python:not api.user.is_anonymous()">
     <h5>編輯記錄</h5>

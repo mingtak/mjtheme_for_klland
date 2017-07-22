@@ -874,3 +874,6 @@ ul.convert2 li a:hover {
 #content-log td.td-2 { width:30%}
 #content-log td.td-3 { width:30%}
 #content-log tr.head { background-color:#ccc }
+
+.named-blob-image div { max-width:100%; overflow:hidden; text-align:center; margin-bottom:25px}
+.named-blob-image img {width:auto}

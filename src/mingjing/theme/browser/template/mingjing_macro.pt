@@ -8,6 +8,43 @@
 <body>
 
 
+<!-- behavior, namedBlob, image-->
+  <metal:row define-macro="named_blob_image">
+<?python
+has_image = context.image_1 or context.image_2 or context.image_3
+item_range = range(1, 4)
+?>
+    <div class="named-blob-image" tal:condition="has_image">
+        <tal:item repeat="index python:item_range">
+          <div tal:define="item python:getattr(context, 'image_%s' % index, False)"
+              tal:condition="item">
+            <img src="${context/absolute_url}/@@images/image_${index}" alt="${item/filename}"/>
+            <p calss="item-name">${item/filename}</p>
+          </div>
+        </tal:item>
+    </div>
+  </metal:row>
+
+
+<!-- behavior, namedBlob, file-->
+  <metal:row define-macro="named_blob_file">
+<?python
+has_file = context.file_1 or context.file_2 or context.file_3
+item_range = range(1, 4)
+?>
+    <div class="named-blob-file" tal:condition="has_file">
+      <ul>
+        <tal:item repeat="index python:item_range">
+          <li tal:define="item python:getattr(context, 'file_%s' % index, False)"
+              tal:condition="item">
+            <a href="${context/absolute_url}/@@download/file_${index}/${item/filename}" target="_blank">${item/filename}</a>
+          </li>
+        </tal:item>
+      </ul>
+    </div>
+  </metal:row>
+
+
 <!-- li listing 一般通用列表 傳入items(catalog brain) -->
   <metal:row define-macro="li-listing">
     <div class="li-listing">
