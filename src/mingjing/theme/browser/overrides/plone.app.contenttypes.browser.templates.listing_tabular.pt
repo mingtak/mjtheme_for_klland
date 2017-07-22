@@ -42,21 +42,30 @@
                     tal:attributes="class python: oddrow and 'even' or 'odd'">
                   <tal:block tal:repeat="field view/tabular_fields">
 
-                    <span tal:condition="python:field == 'Title'">
+                    <div tal:condition="python:field == 'Title'">
 <tal:type switch="item/Type">
     <tal:f case="string:Folder">[${item/Type}]</tal:f>
 <!--    <tal:f case="default">[頁面]</tal:f>
 -->
 </tal:type>
-                      <a href="#"
+<div class="item">
+<tal:date condition="python:item.Type() != 'Folder'">
+  <div class="item-date">${python:item.created.strftime('%Y-%m-%d')}</div>
+</tal:date>
+
+                      <div class="item-title">
+                        <a href="#"
                           tal:attributes="href item_link;
                           class string:$item_wf_state_class $item_type_class;
                           title item_description;"
                           tal:content="item_title">
-                        Item Title
-                      </a>
-<tal:date condition="python:item.Type() != 'Folder'">...${python:item.created.strftime('%Y-%m-%d')}</tal:date>
-                    </span>
+                          Item Title
+                        </a>
+                      </div>
+
+<hr>
+</div>
+                    </div>
 
                   </tal:block>
                 </li>

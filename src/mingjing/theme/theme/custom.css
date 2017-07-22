@@ -694,14 +694,25 @@ h3 .h3-title-more { float:right; font-size:18px; padding: 8px 10px 0 0 }
 ul.listing.table li a:link{color:#3b5998}
 ul.listing.table li a:hover{color:#5cb85c}
 ul.listing.table li a:visited{color:#888}
-ul.listing.table li {
-    margin:15px 10px; padding:10px 15px;
+ul.listing.table li{
+/*    margin:15px 10px; padding:10px 15px;*/
     list-style-type:none; background-color:#fff;
-    border: 2px solid #3b5998;
-    box-shadow: 5px 5px 5px #aaa;
     font-size: 16px;
 }
 
+ul.listing.table li div.item hr{
+    border: 1px dashed;
+}
+
+ul.listing.table li div.item-title {
+width:85%;
+}
+ul.listing.table li div.item-date {
+    color: green;
+float:right;
+width:15%;
+vertical-align:bottom;
+}
 
 
 /* 基隆市地政處 */
