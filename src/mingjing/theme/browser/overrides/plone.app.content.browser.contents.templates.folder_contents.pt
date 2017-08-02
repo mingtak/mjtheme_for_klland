@@ -50,7 +50,7 @@ tabs.reverse()
 </tal:path>
 </h4>
 
-
+<h4 style="float:right"><a href="${portal/absolute_url}/@@site_map">選擇分類新增頁面</a></h4>
 <table id="custom-folder-contents" talcondition="python:api.user.get_current().id != 'admin'">
     <thead>
         <tr>

@@ -8,6 +8,31 @@
 <body>
 
 
+<!-- site_map -->
+  <metal:row define-macro="site_map">
+      <ul tal:condition="python:folder.getChildNodes()">
+          <tal:li tal:repeat="item python:folder.getChildNodes()">
+              <li tal:condition="python:item.portal_type == 'Folder'">
+<?python
+from plone import api
+currentUser = api.user.get_current()
+can_edit = api.user.has_permission('plone.app.contenttypes: Add Document', user=currentUser, obj=item)
+allowedContentTypes = item.allowedContentTypes()
+?>
+                  <tal:canEdit switch="python:bool(allowedContentTypes)">
+                      <a tal:case="True" href="${item/absolute_url}/++add++Document" style="color:blue">${item/title}</a>
+                      <span tal:case="False">${item/title}</span>
+                  </tal:canEdit>
+
+                  <tal:ul define="folder python:item">
+                      <metal:macro use-macro="context/@@mingjing_macro/macros/site_map" />
+                  </tal:ul>
+              </li>
+          </tal:li>
+      </ul>
+
+  </metal:row>
+
 <!-- behavior, namedBlob, image-->
   <metal:row define-macro="named_blob_image">
 <?python
@@ -196,7 +221,7 @@ item_range = range(1, 4)
               <ul>
                   <li tal:repeat="item python:brains[repeat['tab'].index]">
                       <a href="${item/getURL}">
-                          ${python:item.Title[0:120]} ${python:'...' if len(item.Title) > 120 else None}
+                          ${python:item.Title[0:160]} ${python:'...' if len(item.Title) > 160 else None}
                       </a>
                   </li>
               </ul>

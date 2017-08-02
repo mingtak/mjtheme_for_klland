@@ -219,5 +219,14 @@ $("#foot-menu-show a").click(function(){
 </script>
 
 
+<script>
+    var li_elems = $( '#kl-site-map li span' ).parent( 'li' );
+    li_elems.each( function( index ){
+        if($(this).find('a').length==0){
+            $(this).hide()
+        }
+    });
+</script>
+
 
 </div>

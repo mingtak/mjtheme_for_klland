@@ -1,0 +1,33 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="mingjing.content">
+<body>
+
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal_root = api.portal.get()
+?>
+
+<h1>網站地圖</h1>
+<tal:sitemap define="folder python:portal_root">
+  <div id="kl-site-map">
+    <metal:macro use-macro="context/@@mingjing_macro/macros/site_map" />
+  </div>
+</tal:sitemap>
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+

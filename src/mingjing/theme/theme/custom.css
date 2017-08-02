@@ -44,9 +44,13 @@
 
 /* Sitemap start */
 #portal-sitemap { margin-top:50px }
-#portal-sitemap > li.navTreeItem.visualNoMarker { font-size:22px}
-#portal-sitemap li.navTreeItem.visualNoMarker ul.navTree.navTreeLevel2 li {
-    display:inline; margin-right: 15px; word-break: keep-all; font-size:17px}
+#portal-sitemap > li { font-size:25px; margin-top: 20px }
+#portal-sitemap .navTreeLevel2 li { font-size:20px; margin-top:12px }
+#portal-sitemap .navTreeLevel3 li { font-size:16px; margin-top:5px }
+
+#kl-site-map ul li { font-size:25px; margin-top:20px }
+#kl-site-map ul ul li { font-size:20px; margin-top:12px }
+#kl-site-map ul ul ul li { font-size:16px; margin-top:5px }
 /* Sitemap end */
 
 /* Tabs for Views begin */
