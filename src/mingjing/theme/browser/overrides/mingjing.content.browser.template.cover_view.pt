@@ -53,24 +53,6 @@ rel_links = portal['resource']['rel_link'].getChildNodes()
 <section>
     <div class="parallax-content">
 
-<!-- Related URL -->
-        <div id="cover-related-link" class="row" tal:condition="rel_links">
-            <tal:block repeat="item rel_links">
-                <div class="col-sm-6 col-md-3">
-                    <a href="${item/url}" title="${item/title}" target="_blank">
-                        <div class="block" style="background-color:${item/color}">
-                            <img src="${item/absolute_url}/@@images/image/thumb" alt="${item/title}"/>
-                            <br>
-                            ${item/title}
-                        </div>
-                    </a>
-                </div>
-            </tal:block>
-        </div>
-<hr>
-
-
-
 <!-- Tabs & Maps-->
         <div class="row">
 
@@ -126,6 +108,25 @@ rel_links = portal['resource']['rel_link'].getChildNodes()
     </div>
 
     <!-- end .parallax-content -->
+
+
+
+<!-- Related URL -->
+        <div id="cover-related-link" class="row" tal:condition="rel_links">
+            <tal:block repeat="item rel_links">
+                <div class="col-sm-6 col-md-3">
+                    <a href="${item/url}" title="${item/title}" target="_blank">
+                        <div class="block" style="background-color:${item/color}">
+                            <img src="${item/absolute_url}/@@images/image/thumb" alt="${item/title}"/>
+                            <br>
+                            ${item/title}
+                        </div>
+                    </a>
+                </div>
+            </tal:block>
+        </div>
+
+<hr>
 
 <!-- 相關連結 -->
 <!--        <h3 class="category-title">

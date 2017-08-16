@@ -43,11 +43,11 @@
                   <tal:block tal:repeat="field view/tabular_fields">
 
                     <div tal:condition="python:field == 'Title'">
-<tal:type switch="item/Type">
+<!-- <tal:type switch="item/Type">
     <tal:f case="string:Folder">[${item/Type}]</tal:f>
-<!--    <tal:f case="default">[頁面]</tal:f>
--->
+    <tal:f case="default">[頁面]</tal:f>
 </tal:type>
+-->
 <div class="item">
 <tal:date condition="python:item.Type() != 'Folder'">
   <div class="item-date">${python:item.created.strftime('%Y-%m-%d')}</div>
