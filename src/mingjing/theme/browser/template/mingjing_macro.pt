@@ -39,15 +39,19 @@ allowedContentTypes = item.allowedContentTypes()
 has_image = context.image_1 or context.image_2 or context.image_3
 item_range = range(1, 4)
 ?>
-    <div class="named-blob-image" tal:condition="has_image">
-        <tal:item repeat="index python:item_range">
-          <div tal:define="item python:getattr(context, 'image_%s' % index, False)"
-              tal:condition="item">
+
+<div class="owl-carousel owl-theme"  tal:condition="has_image">
+    <tal:item repeat="index python:item_range">
+        <div class="item"
+             tal:define="item python:getattr(context, 'image_%s' % index, False)"
+             tal:condition="item">
             <img src="${context/absolute_url}/@@images/image_${index}" alt="${item/filename}"/>
-            <p calss="item-name">${item/filename}</p>
-          </div>
-        </tal:item>
-    </div>
+<span>${python:getattr(context, 'desc_%s' % index, '')}</span>
+        </div>
+    </tal:item>
+</div>
+
+
   </metal:row>
 
 

@@ -228,5 +228,18 @@ $("#foot-menu-show a").click(function(){
     });
 </script>
 
+<script>
+// Document view owl carousel
+$(document).ready(function() {
+    $('.owl-carousel').owlCarousel({
+        items: 1,
+        margin: 10,
+        autoHeight: true,
+        autoplay: true,
+        autoplaySpeed: 5000
+    });
+})
+</script>
+
 
 </div>
