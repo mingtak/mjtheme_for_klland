@@ -37,9 +37,14 @@ cateL2 = parent.title if pParent else ''
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <!-- <div class="addthis_inline_share_toolbox pull-right"></div> -->
 <div class="row">
+<!-- disable 發佈時間
 <div class="col-md-12">
-<p style="float:right">發佈時間: ${python:context.effective().strftime('%Y/%m/%d %H:%M')}</p>
+    <p tal:condition="python:context.effective().year() > 2008"
+       style="float:right">發佈時間: ${python:context.effective().strftime('%Y/%m/%d %H:%M')}</p>
+    <p tal:condition="python:context.effective().year() < 2008"
+       style="float:right">發佈時間: ${python:context.created().strftime('%Y/%m/%d %H:%M')}</p>
 </div>
+-->
 </div>
 <h4 class="detail">詳細內容：</h4>
             <div id="parent-fieldname-text"
