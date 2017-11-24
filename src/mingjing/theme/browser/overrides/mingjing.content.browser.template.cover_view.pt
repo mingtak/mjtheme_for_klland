@@ -73,27 +73,17 @@ rel_links = portal['resource']['rel_link'].getChildNodes()
                 <h3 style="margin-top:8px">基隆市各地政事務所</h3>
                 <p>請點選區域連結至管轄地政事務所</p>
                 <div id="mapLink">
-                    <div id="apDiv1">
-                        <ul class="convert">
-                            <li>
-                                <a href="http://anleh-land.gov.tw" tabindex="0" title="本所源自「基隆市地政事務所」（於民國41年4月成立），自民國85年7月1日分所後，改為「基隆市安樂地政事務所」，轄管基隆市七堵區、暖暖區、中山區及安樂區的地政相關業務。" target="_blank">安樂區地政事務所</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="apDiv2">
-                        <ul class="convert2">
-                            <li>
-                                <a href="http://www.sinyi-land.gov.tw/" tabindex="0" title="本所源於基隆市地政事務所(自民國85年7月1日分出)，轄管基隆市中正區、仁愛區及信義區的地政相關業務。" target="_blank">信義區地政事務所</a>
-                            </li>
-                        </ul>
-                    </div>
+<div id="kl-map-container">
+<img id="kl-bg-img" src="${portal/absolute_url}/klland/++resource++mingjing.theme/images/Keelung_districts_map_fg.png" alt="基隆市分區圖" style="width:100%"/>
+</div>
+
                 </div>
 
                 <a href="http://anleh-land.gov.tw" title="安樂地政事務所" target="_blank">
-                    <img src="/klland/++resource++mingjing.theme/images/mapBtn1.jpg" alt="安樂地政事務所"></img>
+                    <img src="/klland/++resource++mingjing.theme/images/land_al.png" alt="安樂地政事務所" class="cover-land"></img>
                 </a>
                 <a href="http://www.sinyi-land.gov.tw/" title="信義地政事務所" target="_blank">
-                    <img src="/klland/++resource++mingjing.theme/images/mapBtn2.jpg" alt="信義地政事務所"></img>
+                    <img src="/klland/++resource++mingjing.theme/images/land_si.png" alt="信義地政事務所" class="cover-land"></img>
                 </a>
 
                </div>
@@ -119,7 +109,7 @@ rel_links = portal['resource']['rel_link'].getChildNodes()
                         <div class="block" style="background-color:${item/color}">
                             <img src="${item/absolute_url}/@@images/image/thumb" alt="${item/title}"/>
                             <br>
-                            ${item/title}
+                            <img src="${item/absolute_url}/@@images/textImage" alt="${item/title}" class="text-image"/>
                         </div>
                     </a>
                 </div>

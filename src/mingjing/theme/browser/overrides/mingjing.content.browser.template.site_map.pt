@@ -25,6 +25,7 @@ portal_root = api.portal.get()
   </div>
 </tal:sitemap>
 
+
 </metal:content-core>
 </metal:content-core>
 

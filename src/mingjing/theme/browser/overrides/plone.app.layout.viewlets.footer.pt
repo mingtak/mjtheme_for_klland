@@ -1,7 +1,7 @@
 <?python
 from plone import api
 portal = api.portal.get()
-links = [('1', '單位介紹'), ('2', '訊息快報'), ('3', '線上查詢'), ('4', '線上申辦'), ('5', '便民服務'), ('6', '業務專區'), ('7', '網網相連'),]
+links = [('about', '單位介紹'), ('news', '訊息快報'), ('inquiry', '線上查詢'), ('bid', '線上申辦'), ('service', '便民服務'), ('business', '業務專區'), ('link', '網網相連'),]
 ?>
 
 

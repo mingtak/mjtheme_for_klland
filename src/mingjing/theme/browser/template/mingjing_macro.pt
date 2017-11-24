@@ -10,7 +10,8 @@
 
 <!-- site_map -->
   <metal:row define-macro="site_map">
-      <ul tal:condition="python:folder.getChildNodes()">
+
+      <ul tal:condition="python:folder.getChildNodes()" class="sub-ul">
           <tal:li tal:repeat="item python:folder.getChildNodes()">
               <li tal:condition="python:item.portal_type == 'Folder'">
 <?python
@@ -22,6 +23,7 @@ allowedContentTypes = item.allowedContentTypes()
                   <tal:canEdit switch="python:bool(allowedContentTypes)">
                       <a tal:case="True" href="${item/absolute_url}/++add++Document" style="color:blue">${item/title}</a>
                       <span tal:case="False">${item/title}</span>
+<a class="expand" href="javascript:void(0)">(展開)</a>
                   </tal:canEdit>
 
                   <tal:ul define="folder python:item">

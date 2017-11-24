@@ -144,6 +144,14 @@
     <drop css:content="#plone-contentmenu-display" />
     <drop css:content="#plone-contentmenu-workflow" />
 
+    <!-- script_to_footer_backend -->
+    <after
+      css:content-children="#script_to_footer_backend"
+      css:theme-children="body"
+      />
+
+
+
   </rules>
 
 </rules>

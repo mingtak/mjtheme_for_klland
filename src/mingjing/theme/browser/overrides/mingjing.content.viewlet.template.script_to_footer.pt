@@ -1,3 +1,17 @@
+<?python
+from plone import api
+current = api.user.get_current()
+?>
+<div id="script_to_footer_backend">
+    <script>
+        $(document).ready(function(){
+            $('.viewpermission-add-portal-content #form-widgets-IKlMeta-pubUnit').val("${python:current.getProperty('fullname')}")
+        });
+    </script>
+
+</div>
+
+
 <div id="script_to_footer">
 
 <!-- FB 留言(暫時性/尚未建立app) -->
@@ -239,6 +253,24 @@ $(document).ready(function() {
         autoplaySpeed: 5000
     });
 })
+</script>
+
+
+<script>
+$(document).ready(function(){
+    $('#kl-site-map > .sub-ul li > .sub-ul').hide();
+    sub_ul = $('ul.sub-ul:not(:has(li))')
+    $(sub_ul).siblings('a.expand').hide()
+//    alert(sub_ul.length)
+
+});
+
+$('#kl-site-map li a.expand').click(function(){
+    $(this).parents('li').siblings('li').children('ul').slideUp('slow')
+    ulEls = $(this).siblings('ul');
+    ulEls.slideDown('slow')
+    ulEls.children('li').slideDown('slow')
+});
 </script>
 
 
